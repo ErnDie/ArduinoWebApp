@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LED Control</title>
+</head>
+<body>
+  <button onclick="turn_led_on()">LED on</button>
+  <button onclick="turn_led_off()">LED off</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function turn_led_on() {
+            $.ajax({
+                url: "http://localhost:8000/ledon",
+                type: "GET"
+            });
+        }
+
+    function turn_led_off() {
+            $.ajax({
+                url: "http://localhost:8000/ledoff",
+                type: "GET"
+            });
+        }
+  </script>
+</body>
+</html>
