@@ -14,6 +14,8 @@ from crosslab.soa_services.message import MessageServiceEvent
 from crosslab.soa_services.message import MessageService__Producer, MessageService__Consumer
 from crosslab.soa_services.message.messages import MessageServiceConfig
 
+# Producer is initialized here to grant access to the webapp
+messageServiceProducer = MessageService__Producer("message")
 async def main_async():
     # read config from file
     with open("config.json", "r") as configfile:
@@ -28,7 +30,6 @@ async def main_async():
     #   I/O                                                         #
     # --------------------------------------------------------------#
     # message service: errors
-    messageServiceProducer = MessageService__Producer("message")
     deviceHandler.add_service(messageServiceProducer)
 
     async def onMessage(message: MessageServiceEvent):
