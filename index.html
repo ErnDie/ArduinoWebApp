@@ -6,6 +6,9 @@
 <body>
   <button onclick="turn_led_on()">LED on</button>
   <button onclick="turn_led_off()">LED off</button>
+  <button onclick="startTcp()">Start TCP-Measurement</button>
+  <button onclick="startUdp()">Start UDP-Measurement</button>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
@@ -19,6 +22,20 @@
     function turn_led_off() {
             $.ajax({
                 url: "http://localhost:8000/ledoff",
+                type: "GET"
+            });
+        }
+
+    function startTcp() {
+            $.ajax({
+                url: "http://localhost:8000/start_tcp",
+                type: "GET"
+            });
+        }
+
+    function startUdp() {
+            $.ajax({
+                url: "http://localhost:8000/auswerten",
                 type: "GET"
             });
         }
